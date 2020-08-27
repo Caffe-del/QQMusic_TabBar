@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		954AE2DA24F5576C001D9D7C /* MusicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954AE2D924F5576C001D9D7C /* MusicDetailVC.swift */; };
+		954AE2DC24F563F7001D9D7C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954AE2DB24F563F7001D9D7C /* UIConstants.swift */; };
 		956738D624F24B9B00A37838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738D524F24B9B00A37838 /* AppDelegate.swift */; };
-		956738D824F24B9B00A37838 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738D724F24B9B00A37838 /* SceneDelegate.swift */; };
 		956738DA24F24B9B00A37838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738D924F24B9B00A37838 /* ViewController.swift */; };
 		956738DD24F24B9B00A37838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956738DB24F24B9B00A37838 /* Main.storyboard */; };
 		956738DF24F24B9E00A37838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956738DE24F24B9E00A37838 /* Assets.xcassets */; };
 		956738E224F24B9E00A37838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956738E024F24B9E00A37838 /* LaunchScreen.storyboard */; };
+		956738EA24F25B8C00A37838 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738E924F25B8C00A37838 /* RootTabBarController.swift */; };
+		956738EC24F25D2C00A37838 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738EB24F25D2C00A37838 /* MusicViewController.swift */; };
+		956738EE24F25D3600A37838 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738ED24F25D3600A37838 /* VideoViewController.swift */; };
+		956738F024F25D6100A37838 /* BBSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738EF24F25D6100A37838 /* BBSViewController.swift */; };
+		956738F224F25D6900A37838 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738F124F25D6900A37838 /* AccountViewController.swift */; };
+		956738F524F2B4E700A37838 /* RootTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738F424F2B4E700A37838 /* RootTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		954AE2D924F5576C001D9D7C /* MusicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDetailVC.swift; sourceTree = "<group>"; };
+		954AE2DB24F563F7001D9D7C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		956738D224F24B9B00A37838 /* BottomBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BottomBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956738D524F24B9B00A37838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		956738D724F24B9B00A37838 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		956738D924F24B9B00A37838 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		956738DC24F24B9B00A37838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		956738DE24F24B9E00A37838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956738E124F24B9E00A37838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956738E324F24B9E00A37838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		956738E924F25B8C00A37838 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		956738EB24F25D2C00A37838 /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		956738ED24F25D3600A37838 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		956738EF24F25D6100A37838 /* BBSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBSViewController.swift; sourceTree = "<group>"; };
+		956738F124F25D6900A37838 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		956738F424F2B4E700A37838 /* RootTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,30 @@
 		956738D424F24B9B00A37838 /* BottomBar */ = {
 			isa = PBXGroup;
 			children = (
+				956738F324F2B45300A37838 /* Branch */,
 				956738D524F24B9B00A37838 /* AppDelegate.swift */,
-				956738D724F24B9B00A37838 /* SceneDelegate.swift */,
 				956738D924F24B9B00A37838 /* ViewController.swift */,
+				956738E924F25B8C00A37838 /* RootTabBarController.swift */,
+				954AE2DB24F563F7001D9D7C /* UIConstants.swift */,
+				956738F424F2B4E700A37838 /* RootTabBar.swift */,
 				956738DB24F24B9B00A37838 /* Main.storyboard */,
 				956738DE24F24B9E00A37838 /* Assets.xcassets */,
 				956738E024F24B9E00A37838 /* LaunchScreen.storyboard */,
 				956738E324F24B9E00A37838 /* Info.plist */,
 			);
 			path = BottomBar;
+			sourceTree = "<group>";
+		};
+		956738F324F2B45300A37838 /* Branch */ = {
+			isa = PBXGroup;
+			children = (
+				956738EB24F25D2C00A37838 /* MusicViewController.swift */,
+				954AE2D924F5576C001D9D7C /* MusicDetailVC.swift */,
+				956738ED24F25D3600A37838 /* VideoViewController.swift */,
+				956738EF24F25D6100A37838 /* BBSViewController.swift */,
+				956738F124F25D6900A37838 /* AccountViewController.swift */,
+			);
+			name = Branch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +167,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956738F024F25D6100A37838 /* BBSViewController.swift in Sources */,
+				956738EC24F25D2C00A37838 /* MusicViewController.swift in Sources */,
+				956738F224F25D6900A37838 /* AccountViewController.swift in Sources */,
+				956738F524F2B4E700A37838 /* RootTabBar.swift in Sources */,
+				954AE2DA24F5576C001D9D7C /* MusicDetailVC.swift in Sources */,
 				956738DA24F24B9B00A37838 /* ViewController.swift in Sources */,
+				956738EA24F25B8C00A37838 /* RootTabBarController.swift in Sources */,
+				954AE2DC24F563F7001D9D7C /* UIConstants.swift in Sources */,
+				956738EE24F25D3600A37838 /* VideoViewController.swift in Sources */,
 				956738D624F24B9B00A37838 /* AppDelegate.swift in Sources */,
-				956738D824F24B9B00A37838 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QNB8842V82;
 				INFOPLIST_FILE = BottomBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +342,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QNB8842V82;
 				INFOPLIST_FILE = BottomBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
