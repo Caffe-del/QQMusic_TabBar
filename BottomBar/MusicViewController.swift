@@ -12,12 +12,12 @@ class MusicViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let vc = MusicDetailVC.init()
+        let vc = MusicDetailVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
