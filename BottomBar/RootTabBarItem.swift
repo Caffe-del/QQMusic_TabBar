@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RootTabBarItemDelegate: NSObjectProtocol {
+    func tabBarItem(_ tabBarItem:RootTabBarItem , didSelectedIndex:Int)
+}
+
 class RootTabBarItem: UIView {
     // 对外暴露
     var icon: String! {
@@ -26,6 +30,8 @@ class RootTabBarItem: UIView {
         }
     }
     
+    var RTDelegate: RootTabBarItemDelegate?
+    
     // 私有属性
     fileprivate
     var swappableImageView: UIImageView!
@@ -33,6 +39,18 @@ class RootTabBarItem: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.initSubviews();
+        self.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(handleClickItem))
+        self.addGestureRecognizer(tap)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func initSubviews() {
         swappableImageView = UIImageView()
         self.addSubview(swappableImageView)
         
@@ -42,10 +60,6 @@ class RootTabBarItem: UIView {
         titleLabel.numberOfLines = 0;
         titleLabel.textColor = .systemGray
         self.addSubview(titleLabel)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
@@ -68,6 +82,12 @@ class RootTabBarItem: UIView {
         // 只有图片 模式 主题
         else {
             swappableImageView.bounds = self.bounds
+        }
+    }
+    
+    @objc func handleClickItem() {
+        if self.RTDelegate != nil {
+            self.RTDelegate!.tabBarItem(self, didSelectedIndex: self.tag)
         }
     }
     

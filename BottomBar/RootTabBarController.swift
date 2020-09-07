@@ -19,47 +19,38 @@ enum BottomBarStyle {
 class RootTabBarController: UITabBarController {
 
     private var bottomBarStyle = BottomBarStyle.miniPlayViewOnly
+    private let iconList = ["tabbar_icon_account", "tabbar_icon_account", "tabbar_icon_account", "tabbar_icon_account"]
+    private let titleList = ["音乐", "视频", "扑通", "我的"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tabBar = RootTabBar()
+        tabBar.RTDelegate = self
         
-        let musicTabBatItem = RootTabBarItem()
-        musicTabBatItem.icon = "tabbar_icon_account"
-        musicTabBatItem.title = "音乐"
+        var itemList = [RootTabBarItem]()
+        for (index, item) in iconList.enumerated() {
+            let tabBatItem = RootTabBarItem()
+            tabBatItem.icon = item
+            tabBatItem.title = titleList[index]
+            tabBatItem.tag = index
+            itemList.append(tabBatItem)
+        }
         
-        let videoTabBatItem = RootTabBarItem()
-        videoTabBatItem.icon = "tabbar_icon_account"
-        videoTabBatItem.title = "视频"
-        
-        let BBSTabBatItem = RootTabBarItem()
-        BBSTabBatItem.icon = "tabbar_icon_account"
-        BBSTabBatItem.title = "扑通"
-        
-        let accountTabBatItem = RootTabBarItem()
-        accountTabBatItem.icon = "tabbar_icon_account"
-        accountTabBatItem.title = "我的"
-        
-        tabBar.tabBarItems = [musicTabBatItem, videoTabBatItem, BBSTabBatItem, accountTabBatItem]
+        tabBar.tabBarItems = itemList
         
         self.setValue(tabBar, forKey: "tabBar")
         
         let musicVC = MusicViewController()
-        let image = UIImage.init(named: "tabbar_icon_account")
-        musicVC.tabBarItem = UITabBarItem.init(title: "音乐", image: image, tag: 0)
         let musicNav = UINavigationController.init(rootViewController: musicVC)
         
         let videoVC = VideoViewController()
-        videoVC.tabBarItem = UITabBarItem.init(title: "视频", image: image, tag: 1)
         let videoNav = UINavigationController.init(rootViewController: videoVC)
         
         let BBSVC = BBSViewController()
-        BBSVC.tabBarItem = UITabBarItem.init(title: "扑通", image: image, tag: 2)
         let BBSNav = UINavigationController.init(rootViewController: BBSVC)
         
         let accountVC = AccountViewController()
-        accountVC.tabBarItem = UITabBarItem.init(title: "我的", image: image, tag: 3)
         let accountNav = UINavigationController.init(rootViewController: accountVC)
         
         self.viewControllers = [musicNav, videoNav, BBSNav, accountNav];
@@ -68,21 +59,6 @@ class RootTabBarController: UITabBarController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-//        if (self.botttomBarStyle == BPBottomBarStyleNone) {
-//            tabBarStartingY = SCREEN_HEIGHT;
-//            playBarHeight = PLAY_BAR_HEIGHT;
-//        } else if (self.botttomBarStyle == BPBottomBarStylePlayBarOnly) {
-//            tabBarStartingY = SCREEN_HEIGHT - PLAY_BAR_HEIGHT - SAFE_BOTTOM_MARGIN;
-//            // 因buzz栏目有添加自定义的icon（此icon会超过UITabBarButton顶部4个像素）,所以在只展示playbar时候要处理这个情况
-//            playBarHeight = PLAY_BAR_HEIGHT + SAFE_BOTTOM_MARGIN + 4;
-//        } else if (self.botttomBarStyle == BPBottomBarStyleAll) {
-//            tabBarStartingY = SCREEN_HEIGHT - TAB_BAR_HEIGHT - PLAY_BAR_HEIGHT - SAFE_BOTTOM_MARGIN;
-//            playBarHeight = PLAY_BAR_HEIGHT;
-//        }
-//
-//        [self.tabBar setFrame: CGRectMake(0, tabBarStartingY, SCREEN_WIDTH, PLAY_BAR_HEIGHT + TAB_BAR_HEIGHT + SAFE_BOTTOM_MARGIN)];
-//        self.playBar.frame = CGRectMake(0, 0, SCREEN_WIDTH, playBarHeight);
         
         var tabBarY: CGFloat
         
@@ -107,4 +83,11 @@ class RootTabBarController: UITabBarController {
         }, completion: nil)
     }
 
+}
+
+extension RootTabBarController: MainTabBarDelegate {
+    func tabBar(_ tabBar: RootTabBar, didSelectedIndex: Int) {
+        self.selectedIndex = didSelectedIndex;
+    }
+    
 }

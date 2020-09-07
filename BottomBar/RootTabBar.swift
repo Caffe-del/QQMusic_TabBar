@@ -8,8 +8,14 @@
 
 import UIKit
 
-class RootTabBar: UITabBar {
+protocol MainTabBarDelegate: NSObjectProtocol {
+    func tabBar(_ tabBar:RootTabBar, didSelectedIndex:Int)
+}
 
+class RootTabBar: UITabBar {
+    
+    var RTDelegate: MainTabBarDelegate?
+    
     var itemsContainer: UIView?
     var tabBarItems = [RootTabBarItem]()
     
@@ -34,8 +40,17 @@ class RootTabBar: UITabBar {
             for (index,barItem) in tabBarItems.enumerated() {
                 barItem.frame = CGRect.init(x: itemW*CGFloat(index), y: 0, width: itemW, height: layout.tabBarHeight)
                 itemsContainer!.addSubview(barItem)
+                barItem.RTDelegate = self
             }
             
+        }
+    }
+}
+
+extension RootTabBar: RootTabBarItemDelegate {
+    func tabBarItem(_ tabBarItem: RootTabBarItem, didSelectedIndex: Int) {
+        if self.RTDelegate != nil {
+            self.RTDelegate!.tabBar(self, didSelectedIndex: didSelectedIndex)
         }
     }
 }
