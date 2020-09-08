@@ -5,12 +5,11 @@
       "scale" : "1x"
     },
     {
-      "filename" : "tabbar_icon_account@2x.png",
+      "filename" : "skin_tab_video_normal@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tabbar_icon_account@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

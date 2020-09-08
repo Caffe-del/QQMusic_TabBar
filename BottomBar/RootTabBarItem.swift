@@ -33,9 +33,8 @@ class RootTabBarItem: UIView {
     var RTDelegate: RootTabBarItemDelegate?
     
     // 私有属性
-    fileprivate
-    var swappableImageView: UIImageView!
-    var titleLabel: UILabel!
+    private var swappableImageView: UIImageView!
+    private var titleLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +49,7 @@ class RootTabBarItem: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initSubviews() {
+    private func initSubviews() {
         swappableImageView = UIImageView()
         self.addSubview(swappableImageView)
         
@@ -85,7 +84,7 @@ class RootTabBarItem: UIView {
         }
     }
     
-    @objc func handleClickItem() {
+    @objc private func handleClickItem() {
         if self.RTDelegate != nil {
             self.RTDelegate!.tabBarItem(self, didSelectedIndex: self.tag)
         }

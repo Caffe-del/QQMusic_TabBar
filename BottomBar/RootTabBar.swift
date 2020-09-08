@@ -15,9 +15,11 @@ protocol MainTabBarDelegate: NSObjectProtocol {
 class RootTabBar: UITabBar {
     
     var RTDelegate: MainTabBarDelegate?
-    
-    var itemsContainer: UIView?
     var tabBarItems = [RootTabBarItem]()
+    
+    private var itemsContainer: UIView?
+    private var bgImgView: UIImageView?
+    private var miniPlayerView: UIView?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -27,10 +29,31 @@ class RootTabBar: UITabBar {
             }
         }
         
+        self.layoutBackgroundView()
+        self.layoutMiniPlayerView()
         self.layoutCustomTabBatItems()
     }
     
-    func layoutCustomTabBatItems() {
+    private func layoutBackgroundView() {
+        if bgImgView == nil {
+            bgImgView = UIImageView.init(image: UIImage.init(named: "skin_minibar_bg"))
+            bgImgView!.frame = self.bounds
+            self.addSubview(bgImgView!)
+            self.sendSubviewToBack(bgImgView!)
+        }
+    }
+    
+    private func layoutMiniPlayerView() {
+        if miniPlayerView == nil {
+            let viewW = screenWidth - 40
+            let viewX = (screenWidth - viewW) / 2
+            miniPlayerView = UIView.init(frame: CGRect.init(x: viewX, y: 0, width: viewW, height: 50))
+            miniPlayerView!.backgroundColor = .systemTeal
+            self.addSubview(miniPlayerView!)
+        }
+    }
+    
+    private func layoutCustomTabBatItems() {
         #warning("写法")
         if itemsContainer == nil {
             itemsContainer = UIView.init(frame: CGRect.init(x: 0, y: layout.miniPlayViewHeight, width: screenWidth, height: layout.tabBarHeight))

@@ -8,8 +8,6 @@
 
 import UIKit
 
-#warning("处理文件访问权限")
-
 enum BottomBarStyle {
     case miniPlayViewOnly
     case all
@@ -19,7 +17,8 @@ enum BottomBarStyle {
 class RootTabBarController: UITabBarController {
 
     private var bottomBarStyle = BottomBarStyle.miniPlayViewOnly
-    private let iconList = ["tabbar_icon_account", "tabbar_icon_account", "tabbar_icon_account", "tabbar_icon_account"]
+//    private let iconList = ["music_unselect", "video_unselect", "bbs_unselect", "account_unselect"]
+    private let iconList = ["skin_tab_home_normal", "skin_tab_video_normal", "skin_tab_putoo_normal", "skin_tab_mine_normal"]
     private let titleList = ["音乐", "视频", "扑通", "我的"]
     
     override func viewDidLoad() {
