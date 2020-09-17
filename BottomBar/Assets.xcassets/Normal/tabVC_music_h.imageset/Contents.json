@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "account_unselect.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "tabVC_music_h@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

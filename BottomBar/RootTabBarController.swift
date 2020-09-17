@@ -17,9 +17,18 @@ enum BottomBarStyle {
 class RootTabBarController: UITabBarController {
 
     private var bottomBarStyle = BottomBarStyle.miniPlayViewOnly
-//    private let iconList = ["music_unselect", "video_unselect", "bbs_unselect", "account_unselect"]
-    private let iconList = ["skin_tab_home_normal", "skin_tab_video_normal", "skin_tab_putoo_normal", "skin_tab_mine_normal"]
-    private let titleList = ["音乐", "视频", "扑通", "我的"]
+    private var itemList = [RootTabBarItem]()
+    private let itemsInfo: [(normal:String?, select:String?, title:String?)] =
+        [("tabVC_music","tabVC_music_h","音乐"),
+         ("tabVC_video","tabVC_video_h","视频"),
+         ("tabVC_putoo","tabVC_putoo_h","扑通"),
+         ("tabVC_mine","tabVC_mine_h","我的"),]
+    
+//    private let itemsInfo: [(normal:String?, select:String?, title:String?)] =
+//    [("tabVC_music","tabVC_music_h",nil),
+//     ("tabVC_video","tabVC_video_h",nil),
+//     ("tabVC_putoo","tabVC_putoo_h",nil),
+//     ("tabVC_mine","tabVC_mine_h",nil),]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +36,16 @@ class RootTabBarController: UITabBarController {
         let tabBar = RootTabBar()
         tabBar.RTDelegate = self
         
-        var itemList = [RootTabBarItem]()
-        for (index, item) in iconList.enumerated() {
+        for (index, info) in itemsInfo.enumerated() {
             let tabBatItem = RootTabBarItem()
-            tabBatItem.icon = item
-            tabBatItem.title = titleList[index]
+            if let iconNormal = info.normal, let iconSelect = info.select {
+                tabBatItem.iconNormal = iconNormal
+                tabBatItem.iconSelected = iconSelect
+            }
+            
+            if let title = info.title {
+                tabBatItem.title = title
+            }
             tabBatItem.tag = index
             itemList.append(tabBatItem)
         }
@@ -71,6 +85,7 @@ class RootTabBarController: UITabBarController {
         }
         
         self.tabBar.frame = CGRect.init(x: 0, y: tabBarY, width: screenWidth, height: layout.tabBarHeight + layout.miniPlayViewHeight + safeAreaBottomHeight)
+        self.updateBarItems(selected: self.selectedIndex)
     }
     
     func updateBottomStyle(_ style: BottomBarStyle) {
@@ -81,12 +96,20 @@ class RootTabBarController: UITabBarController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    func updateBarItems(selected:Int) {
+        for (idx,item) in itemList.enumerated() {
+            let state:itemState = selected==idx ? .selected : .normal
+            item.reloadData(state: state)
+        }
+    }
 
 }
 
 extension RootTabBarController: MainTabBarDelegate {
     func tabBar(_ tabBar: RootTabBar, didSelectedIndex: Int) {
         self.selectedIndex = didSelectedIndex;
+        self.updateBarItems(selected: didSelectedIndex)
     }
     
 }

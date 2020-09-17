@@ -13,6 +13,7 @@ class MusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationController?.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -25,5 +26,19 @@ class MusicViewController: UIViewController {
         if let tabBarController = self.tabBarController as? RootTabBarController {
             tabBarController.updateBottomStyle(.all)
         }
+    }
+}
+
+extension MusicViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return nil
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        
     }
 }

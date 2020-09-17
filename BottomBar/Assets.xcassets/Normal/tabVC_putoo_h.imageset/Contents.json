@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "video_unselect.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "video_unselect@2x.png",
+      "filename" : "tabVC_putoo_h@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

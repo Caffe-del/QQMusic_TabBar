@@ -12,14 +12,18 @@ protocol RootTabBarItemDelegate: NSObjectProtocol {
     func tabBarItem(_ tabBarItem:RootTabBarItem , didSelectedIndex:Int)
 }
 
+enum itemState {
+    case normal
+    case selected
+}
+
 class RootTabBarItem: UIView {
     // 对外暴露
-    var icon: String! {
-        didSet{
-            swappableImageView.image = UIImage.init(named: icon)
-        }
-    }
-    var title: String! {
+    var iconNormal: String? 
+    
+    var iconSelected: String?
+    
+    var title: String? {
         didSet {
             titleLabel.text = title
         }
@@ -65,7 +69,10 @@ class RootTabBarItem: UIView {
         super.layoutSubviews()
         
         // 图片和文字 模式
-        if icon.count > 0 && title.count > 0 {
+        if let titleStr = title, titleStr.count > 0,
+            let normal = iconNormal, normal.count > 0,
+            let select = iconSelected, select.count > 0 {
+            
             let imgW: CGFloat = 22
             let imgH: CGFloat = imgW
             let imgX: CGFloat = (self.frame.width - imgW) / 2
@@ -80,8 +87,19 @@ class RootTabBarItem: UIView {
         }
         // 只有图片 模式 主题
         else {
-            swappableImageView.bounds = self.bounds
+            swappableImageView.frame = self.bounds
         }
+    }
+    
+    func reloadData(state:itemState) {
+        if let normal = iconNormal, state == .normal {
+            swappableImageView.image = UIImage.init(named: normal)
+        }
+        
+        if let select = iconSelected, state == .selected {
+            swappableImageView.image = UIImage.init(named: select)
+        }
+        
     }
     
     @objc private func handleClickItem() {
