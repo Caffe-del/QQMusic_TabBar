@@ -14,7 +14,11 @@ class MusicViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationController?.delegate = self
-        // Do any additional setup after loading the view.
+        
+        let switchBtn = UISwitch.init(frame: CGRect.init(origin: self.view.center, size: CGSize.init(width: 60, height: 50)))
+        switchBtn.isOn = true
+        switchBtn.addTarget(self, action: #selector(self.handleSwitchValueChange(_:)), for: .valueChanged)
+        self.view.addSubview(switchBtn)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -24,6 +28,15 @@ class MusicViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if let tabBarController = self.tabBarController as? RootTabBarController {
+            tabBarController.updateBottomStyle(.all)
+        }
+    }
+    
+    @objc func handleSwitchValueChange(_ switchBtn:UISwitch) {
+        sharedGloble.isSkinStyle = switchBtn.isOn
+        
+        if let tabBarController = self.tabBarController as? RootTabBarController {
+            tabBarController.updateItemsInfo()
             tabBarController.updateBottomStyle(.all)
         }
     }

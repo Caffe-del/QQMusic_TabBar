@@ -19,18 +19,15 @@ enum itemState {
 
 class RootTabBarItem: UIView {
     // 对外暴露
-    var iconNormal: String? 
+    var iconName: String!
+    var iconSelectedName: String!
     
-    var iconSelected: String?
+    var titleColor:UIColor!
+    var titleSelectedColor: UIColor!
     
-    var title: String? {
+    var title: String! {
         didSet {
             titleLabel.text = title
-        }
-    }
-    var titleColor: UIColor! {
-        didSet {
-            titleLabel.textColor = titleColor
         }
     }
     
@@ -61,45 +58,35 @@ class RootTabBarItem: UIView {
         titleLabel.textAlignment = .center
         titleLabel.font = .systemFont(ofSize: 10)
         titleLabel.numberOfLines = 0;
-        titleLabel.textColor = .systemGray
         self.addSubview(titleLabel)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // 图片和文字 模式
-        if let titleStr = title, titleStr.count > 0,
-            let normal = iconNormal, normal.count > 0,
-            let select = iconSelected, select.count > 0 {
-            
-            let imgW: CGFloat = 22
-            let imgH: CGFloat = imgW
-            let imgX: CGFloat = (self.frame.width - imgW) / 2
-            let imgY: CGFloat = 0
-            swappableImageView.frame = CGRect.init(x: imgX, y: imgY, width: imgW, height: imgH)
-            
-            let titleX: CGFloat = 0
-            let titleY: CGFloat = swappableImageView.frame.maxY + 5
-            let titleW: CGFloat = self.frame.width;
-            let titleH: CGFloat = 18
-            titleLabel.frame = CGRect.init(x: titleX, y: titleY, width: titleW, height: titleH)
-        }
-        // 只有图片 模式 主题
-        else {
-            swappableImageView.frame = self.bounds
-        }
+        let imgW: CGFloat = sharedGloble.isSkinStyle ? 60:30
+        let imgH: CGFloat = sharedGloble.isSkinStyle ? 50:30
+        let imgX: CGFloat = (self.frame.width - imgW) / 2
+        let imgY: CGFloat = 0
+        swappableImageView.frame = CGRect.init(x: imgX, y: imgY, width: imgW, height: imgH)
+        
+        let titleX: CGFloat = 0
+        let titleY: CGFloat = swappableImageView.frame.maxY + 1
+        let titleW: CGFloat = self.frame.width;
+        let titleH: CGFloat = 18
+        titleLabel.frame = CGRect.init(x: titleX, y: titleY, width: titleW, height: titleH)
     }
     
     func reloadData(state:itemState) {
-        if let normal = iconNormal, state == .normal {
+        if let normal = iconName, state == .normal {
+            titleLabel.textColor = titleColor
             swappableImageView.image = UIImage.init(named: normal)
         }
         
-        if let select = iconSelected, state == .selected {
+        if let select = iconSelectedName, state == .selected {
             swappableImageView.image = UIImage.init(named: select)
+            titleLabel.textColor = titleSelectedColor
         }
-        
     }
     
     @objc private func handleClickItem() {
@@ -107,7 +94,4 @@ class RootTabBarItem: UIView {
             self.RTDelegate!.tabBarItem(self, didSelectedIndex: self.tag)
         }
     }
-    
-    
-
 }
