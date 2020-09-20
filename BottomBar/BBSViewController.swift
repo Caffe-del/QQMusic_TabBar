@@ -12,7 +12,7 @@ class BBSViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBlue
+        self.view.backgroundColor = UIColor.init(red: 144/255, green: 190/255, blue: 222/255, alpha: 1)
         // Do any additional setup after loading the view.
     }
     

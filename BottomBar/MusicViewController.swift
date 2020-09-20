@@ -12,7 +12,7 @@ class MusicViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor.init(red: 229/255, green: 225/255, blue: 238/255, alpha: 1)
         self.navigationController?.delegate = self
         
         let switchBtn = UISwitch.init(frame: CGRect.init(origin: self.view.center, size: CGSize.init(width: 60, height: 50)))
@@ -36,7 +36,7 @@ class MusicViewController: UIViewController {
         sharedGloble.isSkinStyle = switchBtn.isOn
         
         if let tabBarController = self.tabBarController as? RootTabBarController {
-            tabBarController.updateItemsInfo()
+            tabBarController.updateRootTabBarInfos()
             tabBarController.updateBottomStyle(.all)
         }
     }

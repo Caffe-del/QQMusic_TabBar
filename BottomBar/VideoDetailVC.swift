@@ -12,7 +12,7 @@ class VideoDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemPink
+        self.view.backgroundColor = UIColor.init(red: 255/255, green: 228/255, blue: 181/255, alpha: 1)
         // Do any additional setup after loading the view.
     }
 
