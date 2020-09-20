@@ -13,13 +13,17 @@ class MusicDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 255/255, green: 228/255, blue: 181/255, alpha: 1)
+        self.view.backgroundColor = .systemGray
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if let tabBarController = self.tabBarController as? RootTabBarController {
-            tabBarController.updateBottomStyle(.none)
+            tabBarController.updateBottomStyle(.miniPlayViewOnly)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

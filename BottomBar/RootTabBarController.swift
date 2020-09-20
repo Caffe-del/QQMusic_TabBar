@@ -58,16 +58,16 @@ class RootTabBarController: UITabBarController {
         self.setValue(rootTabBar, forKey: "tabBar")
         
         let musicVC = MusicViewController()
-        let musicNav = UINavigationController.init(rootViewController: musicVC)
+        let musicNav = BaseNavigationController.init(rootViewController: musicVC)
         
         let videoVC = VideoViewController()
-        let videoNav = UINavigationController.init(rootViewController: videoVC)
+        let videoNav = BaseNavigationController.init(rootViewController: videoVC)
         
         let BBSVC = BBSViewController()
-        let BBSNav = UINavigationController.init(rootViewController: BBSVC)
+        let BBSNav = BaseNavigationController.init(rootViewController: BBSVC)
         
         let accountVC = AccountViewController()
-        let accountNav = UINavigationController.init(rootViewController: accountVC)
+        let accountNav = BaseNavigationController.init(rootViewController: accountVC)
         
         self.viewControllers = [musicNav, videoNav, BBSNav, accountNav];
         
