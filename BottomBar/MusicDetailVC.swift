@@ -14,6 +14,10 @@ class MusicDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemGray
+        
+        let switchBtn = UISwitch.init(frame: CGRect.init(origin: self.view.center, size: CGSize.init(width: 60, height: 50)))
+        switchBtn.isOn = true
+        self.view.addSubview(switchBtn)
         // Do any additional setup after loading the view.
     }
     
@@ -23,7 +27,7 @@ class MusicDetailVC: UIViewController {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.navigationController?.popViewController(animated: true)
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.navigationController?.popViewController(animated: true)
+//    }
 }

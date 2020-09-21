@@ -22,7 +22,7 @@ class RootTabBar: UITabBar {
     private var tabBarItems = [RootTabBarItem]()
     private var bgImgView: UIImageView! // 背景图
     private var miniPlayerView: UIView! // mini播放条
-    private  var itemsContainer: UIView! // 装载items的容器
+    private var itemsContainer: UIView! // 装载items的容器
     
     override init(frame: CGRect) {
         super.init(frame: frame)
