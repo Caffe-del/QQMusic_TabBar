@@ -34,7 +34,7 @@ class PopAnimatedTransitioningAsFromTopToBottom: NSObject, UIViewControllerAnima
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: {
             fromView.frame = CGRect.init(x: 0, y: screenHeight, width: screenWidth, height: screenHeight)
         }) { (finish) in
-            transitionContext.completeTransition(true)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
 }

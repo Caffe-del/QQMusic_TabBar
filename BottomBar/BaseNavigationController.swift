@@ -47,16 +47,23 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
     
     // 手势交互转场
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return popInteractiveTransition
+        if animationController.isKind(of: PopAnimatedTransitioningAsFromTopToBottom.self) {
+            return popInteractiveTransition
+        }
+        return nil
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if viewController.isKind(of: MusicDetailVC.self) {
-            screenEdgesPanGesture.isEnabled = true
-            viewController.view.addGestureRecognizer(screenEdgesPanGesture)
+            self.interactivePopGestureRecognizer?.isEnabled = false
             
             panGesture.isEnabled = true
             viewController.view.addGestureRecognizer(panGesture)
+            
+            screenEdgesPanGesture.isEnabled = true
+            viewController.view.addGestureRecognizer(screenEdgesPanGesture)
+            
+            
         }
         
     }
