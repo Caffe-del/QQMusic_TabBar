@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9548FF0F251B9ED500EF9017 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9548FF0E251B9ED500EF9017 /* BaseViewController.swift */; };
+		9548FF15251BA88200EF9017 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9548FF14251BA88200EF9017 /* Runtime.swift */; };
 		954AE2DA24F5576C001D9D7C /* MusicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954AE2D924F5576C001D9D7C /* MusicDetailVC.swift */; };
 		954AE2DC24F563F7001D9D7C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954AE2DB24F563F7001D9D7C /* UIConstants.swift */; };
 		9559289B2501396D00F6775F /* RootTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559289A2501396D00F6775F /* RootTabBarItem.swift */; };
@@ -15,7 +17,6 @@
 		955A38182517A1EC00FEA429 /* PushAnimatedTransitionAsFromBottomToTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A38172517A1EC00FEA429 /* PushAnimatedTransitionAsFromBottomToTop.swift */; };
 		955A381A2517A20900FEA429 /* PopAnimatedTransitioningAsFromTopToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955A38192517A20900FEA429 /* PopAnimatedTransitioningAsFromTopToBottom.swift */; };
 		956738D624F24B9B00A37838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738D524F24B9B00A37838 /* AppDelegate.swift */; };
-		956738DA24F24B9B00A37838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956738D924F24B9B00A37838 /* ViewController.swift */; };
 		956738DD24F24B9B00A37838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956738DB24F24B9B00A37838 /* Main.storyboard */; };
 		956738DF24F24B9E00A37838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956738DE24F24B9E00A37838 /* Assets.xcassets */; };
 		956738E224F24B9E00A37838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956738E024F24B9E00A37838 /* LaunchScreen.storyboard */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9548FF0E251B9ED500EF9017 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9548FF14251BA88200EF9017 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		954AE2D924F5576C001D9D7C /* MusicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDetailVC.swift; sourceTree = "<group>"; };
 		954AE2DB24F563F7001D9D7C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		9559289A2501396D00F6775F /* RootTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarItem.swift; sourceTree = "<group>"; };
@@ -37,7 +40,6 @@
 		955A38192517A20900FEA429 /* PopAnimatedTransitioningAsFromTopToBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimatedTransitioningAsFromTopToBottom.swift; sourceTree = "<group>"; };
 		956738D224F24B9B00A37838 /* BottomBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BottomBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956738D524F24B9B00A37838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		956738D924F24B9B00A37838 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		956738DC24F24B9B00A37838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		956738DE24F24B9E00A37838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956738E124F24B9E00A37838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,7 +84,8 @@
 			children = (
 				956738F324F2B45300A37838 /* Branch */,
 				956738D524F24B9B00A37838 /* AppDelegate.swift */,
-				956738D924F24B9B00A37838 /* ViewController.swift */,
+				9548FF0E251B9ED500EF9017 /* BaseViewController.swift */,
+				9548FF14251BA88200EF9017 /* Runtime.swift */,
 				955A38152517950B00FEA429 /* BaseNavigationController.swift */,
 				955A38172517A1EC00FEA429 /* PushAnimatedTransitionAsFromBottomToTop.swift */,
 				955A38192517A20900FEA429 /* PopAnimatedTransitioningAsFromTopToBottom.swift */,
@@ -121,6 +124,7 @@
 				956738CE24F24B9B00A37838 /* Sources */,
 				956738CF24F24B9B00A37838 /* Frameworks */,
 				956738D024F24B9B00A37838 /* Resources */,
+				9548FF0B251B9B1600EF9017 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -177,6 +181,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9548FF0B251B9B1600EF9017 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REVEAL_APP_PATH=$(mdfind kMDItemCFBundleIdentifier=\"com.ittybittyapps.Reveal2\" | head -n 1)\nBUILD_SCRIPT_PATH=\"${REVEAL_APP_PATH}/Contents/SharedSupport/Scripts/reveal_server_build_phase.sh\"\nif [ \"${REVEAL_APP_PATH}\" -a -e \"${BUILD_SCRIPT_PATH}\" ]; then\n    \"${BUILD_SCRIPT_PATH}\"\nelse\n    echo \"Reveal Server not loaded: Cannot find a compatible Reveal app.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		956738CE24F24B9B00A37838 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -187,13 +211,14 @@
 				956738F024F25D6100A37838 /* BBSViewController.swift in Sources */,
 				958E7D962507D28A00D65F94 /* VideoDetailVC.swift in Sources */,
 				955A381A2517A20900FEA429 /* PopAnimatedTransitioningAsFromTopToBottom.swift in Sources */,
+				9548FF0F251B9ED500EF9017 /* BaseViewController.swift in Sources */,
 				956738EC24F25D2C00A37838 /* MusicViewController.swift in Sources */,
 				956738F224F25D6900A37838 /* AccountViewController.swift in Sources */,
 				9559289D2501398400F6775F /* RootTabBar.swift in Sources */,
 				954AE2DA24F5576C001D9D7C /* MusicDetailVC.swift in Sources */,
-				956738DA24F24B9B00A37838 /* ViewController.swift in Sources */,
 				956738EA24F25B8C00A37838 /* RootTabBarController.swift in Sources */,
 				954AE2DC24F563F7001D9D7C /* UIConstants.swift in Sources */,
+				9548FF15251BA88200EF9017 /* Runtime.swift in Sources */,
 				9559289B2501396D00F6775F /* RootTabBarItem.swift in Sources */,
 				956738EE24F25D3600A37838 /* VideoViewController.swift in Sources */,
 				956738D624F24B9B00A37838 /* AppDelegate.swift in Sources */,
@@ -340,8 +365,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QNB8842V82;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KJ7B9R8CS3;
 				INFOPLIST_FILE = BottomBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -350,6 +376,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Darren.BottomBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev-Wildcard";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -359,8 +386,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QNB8842V82;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KJ7B9R8CS3;
 				INFOPLIST_FILE = BottomBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -369,6 +397,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Darren.BottomBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev-Wildcard";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

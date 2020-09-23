@@ -21,7 +21,9 @@ var tabBarHeight: CGFloat {
 let screenFrame: CGRect = UIScreen.main.bounds
 let screenWidth = screenFrame.size.width
 let screenHeight = screenFrame.size.height
-let safeAreaTopHeight: CGFloat = (screenHeight >= 812.0 && UIDevice.current.model == "iPhone" ? 88 : 64)
+let statusBarHeight: CGFloat = (screenHeight >= 812.0 && UIDevice.current.model == "iPhone" ? 44 : 20)
+let navigationBarHeight: CGFloat = 44
+let safeAreaTopHeight: CGFloat = navigationBarHeight + statusBarHeight
 let safeAreaBottomHeight: CGFloat = (screenHeight >= 812.0 && UIDevice.current.model == "iPhone"  ? 30 : 0)
 
 let sharedGloble = Globle()

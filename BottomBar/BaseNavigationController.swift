@@ -32,6 +32,7 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationBar.isTranslucent = false
         self.delegate = self
     }
     
@@ -63,7 +64,7 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
             screenEdgesPanGesture.isEnabled = true
             viewController.view.addGestureRecognizer(screenEdgesPanGesture)
             
-            
+            panGesture.require(toFail: screenEdgesPanGesture)
         }
         
     }
@@ -78,11 +79,12 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
         if screenEdgesPanGesture == gesture {
             velocity = screenEdgesPanGesture.velocity(in: screenEdgesPanGesture.view).x
             process = screenEdgesPanGesture.translation(in: screenEdgesPanGesture.view).x / screenWidth
+            process = pow(min(1.0, max(0.0, process)), 2)  // 增加手势梯度
             isScreenEdge = true
         } else {
             velocity = panGesture.velocity(in: panGesture.view).y
             process = panGesture.translation(in: panGesture.view).y /  CGFloat(screenHeight - 190)
-
+            process = pow(min(1.0, max(0.0, process)), 2) // 增加手势梯度
         }
                 
         if gesture.state == .began {

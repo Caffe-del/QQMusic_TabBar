@@ -9,25 +9,32 @@
 
 import UIKit
 
-class MusicDetailVC: UIViewController {
+class MusicDetailVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemGray
+        self.view.backgroundColor = .systemRed
+        self.navigationController?.navigationBar.isHidden = true
         
-        let switchBtn = UISwitch.init(frame: CGRect.init(origin: self.view.center, size: CGSize.init(width: 60, height: 50)))
-        switchBtn.isOn = true
-        self.view.addSubview(switchBtn)
+        let backBtn = UIButton.init(frame: CGRect.init(x: 10, y: statusBarHeight, width: 60, height: 60))
+        backBtn.addTarget(self, action: #selector(handleNaviBackClick), for: .touchUpInside)
+        backBtn.setImage(UIImage.init(named: "Nav_dismiss"), for: .normal)
+        self.view.addSubview(backBtn)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if let tabBarController = self.tabBarController as? RootTabBarController {
-            tabBarController.updateBottomStyle(.miniPlayViewOnly)
+            tabBarController.updateBottomStyle(.none)
         }
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.navigationController?.popViewController(animated: true)
-//    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    @objc func handleNaviBackClick() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
