@@ -10,6 +10,11 @@
 
 import UIKit
 
+enum pushOperation {
+    case normal
+    case bottomUp
+}
+
 class BaseNavigationController: UINavigationController, UINavigationControllerDelegate {
 
     var popInteractiveTransition: UIPercentDrivenInteractiveTransition?
@@ -39,9 +44,15 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
     // 非手势交互转场
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
-            return PushAnimatedTransitionAsFromBottomToTop.init()
+            if toVC.currentPushOperation == .bottomUp {
+                fromVC.isDelayShowBottomBar = false
+                return PushAnimatedTransitionAsFromBottomToTop.init()
+            }
         } else if (operation == .pop) {
-            return PopAnimatedTransitioningAsFromTopToBottom.init()
+            if fromVC.currentPushOperation == .bottomUp {
+                toVC.isDelayShowBottomBar = true
+                return PopAnimatedTransitioningAsFromTopToBottom.init()
+            }
         }
         return nil
     }
@@ -135,4 +146,14 @@ extension BaseNavigationController: UIGestureRecognizerDelegate {
         return true
     }
 }
+
+extension UINavigationController {
+    
+    func RTPushViewController(_ viewController: UIViewController, operation: pushOperation, animated: Bool) {
+        
+        viewController.currentPushOperation = operation
+        self.pushViewController(viewController, animated: animated)
+    }
+}
+
 

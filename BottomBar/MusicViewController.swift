@@ -23,11 +23,11 @@ class MusicViewController: BaseViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let vc = MusicDetailVC()
         vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc, animated: true)
-//        self.navigationController?.present(vc, animated: true, completion: nil)
+        self.navigationController?.RTPushViewController(vc, operation: .bottomUp, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let tabBarController = self.tabBarController as? RootTabBarController {
             tabBarController.updateBottomStyle(.all)
         }

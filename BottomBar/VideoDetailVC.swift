@@ -17,6 +17,7 @@ class VideoDetailVC: BaseViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let tabBarController = self.tabBarController as? RootTabBarController {
             tabBarController.updateBottomStyle(.miniPlayViewOnly)
         }
