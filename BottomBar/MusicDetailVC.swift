@@ -23,13 +23,6 @@ class MusicDetailVC: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let tabBarController = self.tabBarController as? RootTabBarController {
-            tabBarController.updateBottomStyle(.none)
-        }
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false

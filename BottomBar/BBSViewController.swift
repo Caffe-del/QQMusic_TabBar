@@ -13,18 +13,17 @@ class BBSViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(red: 144/255, green: 190/255, blue: 222/255, alpha: 1)
-        // Do any additional setup after loading the view.
+        
+        let descLabel = UILabel.init()
+        descLabel.numberOfLines = 0
+        let labelW:CGFloat = 260
+        descLabel.frame = CGRect.init(x: (screenWidth-labelW)/2.0, y: screenHeight/2.0, width: labelW, height: 150)
+        descLabel.text = "点击空白处跳转,使用系统的Present"
+        self.view.addSubview(descLabel)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let vc = BBSDetailVC.init()
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
-    */
-
 }

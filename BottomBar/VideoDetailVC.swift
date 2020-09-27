@@ -15,11 +15,8 @@ class VideoDetailVC: BaseViewController {
         self.view.backgroundColor = UIColor.init(red: 255/255, green: 228/255, blue: 181/255, alpha: 1)
         // Do any additional setup after loading the view.
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let tabBarController = self.tabBarController as? RootTabBarController {
-            tabBarController.updateBottomStyle(.miniPlayViewOnly)
-        }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 }

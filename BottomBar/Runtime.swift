@@ -19,13 +19,17 @@ extension UIViewController {
     // 当前vc是否需要延迟做动画
     var isDelayShowBottomBar: Bool {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.isDelayShowBottomBarKey) as! Bool
+            if let getGalue = objc_getAssociatedObject(self, &AssociatedKeys.isDelayShowBottomBarKey) as? Bool {
+                return getGalue 
+            }
+            return false
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.isDelayShowBottomBarKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
+    // 当前vc 使用push的方式
     var currentPushOperation: pushOperation {
         get {
             if let operation = objc_getAssociatedObject(self, &AssociatedKeys.pushOperationKey) as? pushOperation {

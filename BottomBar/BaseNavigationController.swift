@@ -10,11 +10,6 @@
 
 import UIKit
 
-enum pushOperation {
-    case normal
-    case bottomUp
-}
-
 class BaseNavigationController: UINavigationController, UINavigationControllerDelegate {
 
     var popInteractiveTransition: UIPercentDrivenInteractiveTransition?
@@ -39,7 +34,9 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
         super.viewDidLoad()
         self.navigationBar.isTranslucent = false
         self.delegate = self
+        self.interactivePopGestureRecognizer?.delegate = self
     }
+  
     
     // 非手势交互转场
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -66,9 +63,7 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if viewController.isKind(of: MusicDetailVC.self) {
-            self.interactivePopGestureRecognizer?.isEnabled = false
-            
+        if viewController.currentPushOperation == .bottomUp {            
             panGesture.isEnabled = true
             viewController.view.addGestureRecognizer(panGesture)
             
@@ -147,10 +142,15 @@ extension BaseNavigationController: UIGestureRecognizerDelegate {
     }
 }
 
+
+enum pushOperation {
+    case normal
+    case bottomUp
+}
+
 extension UINavigationController {
     
     func RTPushViewController(_ viewController: UIViewController, operation: pushOperation, animated: Bool) {
-        
         viewController.currentPushOperation = operation
         self.pushViewController(viewController, animated: animated)
     }

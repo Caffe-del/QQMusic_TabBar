@@ -13,6 +13,13 @@ class VideoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(red: 223/255, green: 253/255, blue: 255/255, alpha: 1)
+        
+        let descLabel = UILabel.init()
+        descLabel.numberOfLines = 0
+        let labelW:CGFloat = 260
+        descLabel.frame = CGRect.init(x: (screenWidth-labelW)/2.0, y: screenHeight/2.0, width: labelW, height: 150)
+        descLabel.text = "点击空白处跳转,使用正常的push"
+        self.view.addSubview(descLabel)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -20,10 +27,4 @@ class VideoViewController: BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let tabBarController = self.tabBarController as? RootTabBarController {
-            tabBarController.updateBottomStyle(.all)
-        }
-    }
 }
