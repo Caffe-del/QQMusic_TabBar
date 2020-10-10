@@ -1,6 +1,6 @@
 ## 仿QQ音乐底部TabBar与播放条组合方案
 
-<img src="/Users/darren/Desktop/temp/Project/BottomBar/Resource/QQMusic_Record.png" alt="2020-09-28 23.44.48" align = 'center' />
+<img src="./Resource/QQMusic_Record.png" alt="2020-09-28 23.44.48" align = 'center' />
 
 上面的gif是从QQ音乐里使用的一段录屏，可以大致把这个组合实现方案归纳成下面三方面：
 
@@ -103,5 +103,5 @@ if let tabBarController = self.tabBarController as? RootTabBarController,  !self
 
 ## 效果
 
-![2020-10-10 23.04.23](/Users/darren/Desktop/temp/Project/BottomBar/Resource/BottomBar_Record.png)
+![2020-10-10 23.04.23](./Resource/BottomBar_Record.png)
 
